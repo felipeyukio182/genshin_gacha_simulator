@@ -3,17 +3,17 @@ function roletar() {
     const resLendario = Math.ceil(Math.random() * chancesLendario)
     if (resLendario == 1) {
         
-        resultado.innerHTML += `<strong>${sortearLendario(garantidoLendario)}</strong> || `
+        resultado.innerHTML += `<span class="lendario">${sortearLendario(garantidoLendario)}</span> || `
         chancesLendario = 90
     } else {
         //errou lendario
         chancesLendario--
         const resEpico = Math.ceil(Math.random() * chancesEpico)
         if (resEpico == 1) {
-            resultado.innerHTML += "Epico || "
+            resultado.innerHTML += '<span class="epico">Epico<span> || '
             chancesEpico = 10
         } else {
-            resultado.innerHTML += "Comum || "
+            resultado.innerHTML += 'Comum || '
             chancesEpico--
         }
     }

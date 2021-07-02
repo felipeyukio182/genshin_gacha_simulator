@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+}
+
+span.lendario {
+    color: orangered;
+    font-weight: bold;
+}
+
+span.epico {
+    color: purple;
+    font-weight: bold;
+}
