@@ -12,21 +12,24 @@
         <h1>Genshin Gatcha Simulator</h1>
     </header>
     <main>
-        <label for="bannerLendario">Banner: </label>
-        <input type="text" name="bannerLendario" id="bannerLendario" placeholder="Informe personagem/arma...">
+        <div>
+            <label for="bannerLendario">Banner: </label>
+            <input type="text" name="bannerLendario" id="bannerLendario" placeholder="Informe personagem/arma...">
+        </div>
+        <div>
+            <input type="radio" name="roletar" id="roletar1" checked>
+            <label for="roletar1">Roletar 1x</label>
 
-        <input type="radio" name="roletar" id="roletar1" checked>
-        <label for="roletar1">Roletar 1x</label>
-
-        <input type="radio" name="roletar" id="roletar10">
-        <label for="roletar10">Roletar 10x</label>
-        
-        <input type="radio" name="roletar" id="roletar90">
-        <label for="roletar90">Roletar 90x</label>
-
-        <button id="roletar">Roletar!</button>
+            <input type="radio" name="roletar" id="roletar10">
+            <label for="roletar10">Roletar 10x</label>
+            
+            <input type="radio" name="roletar" id="roletar90">
+            <label for="roletar90">Roletar 90x</label>
+        </div>
+        <button id="btnRoletar" class="btnRoletar">Roletar!</button>
 
         <div id="resultado"></div>
+
     </main>
 
     <script>
@@ -46,7 +49,7 @@
 
         const opcaoRoletar = document.querySelectorAll('input[name="roletar"]') 
 
-        const btnRoletar = document.querySelector('#roletar')
+        const btnRoletar = document.querySelector('#btnRoletar')
       
         btnRoletar.onclick = e => {
             e.preventDefault()

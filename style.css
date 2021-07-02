@@ -1,13 +1,39 @@
 body {
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-span.lendario {
+.btnRoletar {
+    margin: 5px;
+}
+
+.lendario {
+    /* background-color: yellow; */
     color: orangered;
     font-weight: bold;
 }
 
-span.epico {
+.epico {
     color: purple;
     font-weight: bold;
+}
+
+.comum {
+    color: black;
+}
+
+div#resultado {
+    display: flex;
+    /* width: 80%; */
+    width: 800px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+div#resultado div {
+    box-sizing: border-box;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 10px;
 }
