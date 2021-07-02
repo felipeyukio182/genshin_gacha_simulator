@@ -12,8 +12,20 @@
     </header>
     <main>
         <label for="bannerLendario">Banner: </label>
-        <input type="text" name="bannerLendario" id="bannerLendario" placeholder="Informe o personagem/arma...">
+        <input type="text" name="bannerLendario" id="bannerLendario" placeholder="Informe personagem/arma...">
+
+        <input type="radio" name="roletar" id="roletar1" checked>
+        <label for="roletar1">Roletar 1x</label>
+
+        <input type="radio" name="roletar" id="roletar10">
+        <label for="roletar10">Roletar 10x</label>
+        
+        <input type="radio" name="roletar" id="roletar90">
+        <label for="roletar90">Roletar 90x</label>
+
         <button id="roletar">Roletar!</button>
+
+        <div id="resultado"></div>
     </main>
 
     <script>
@@ -21,10 +33,26 @@
         let chancesEpico = 10
         let garantidoLendario = false
 
+        const resultado = document.querySelector("#resultado")
+
+        const opcaoRoletar = document.querySelectorAll('input[name="roletar"]') 
+
         const btnRoletar = document.querySelector('#roletar')
+      
         btnRoletar.onclick = e => {
             e.preventDefault()
 
+            if (opcaoRoletar[0].checked) {
+                roletar()
+            } else if (opcaoRoletar[1].checked) {
+                for (i=0; i<10; i++) {
+                    roletar()
+                }
+            } else if (opcaoRoletar[2].checked) {
+                for (i=0; i<90; i++) {
+                    roletar()
+                }
+            }
         }
 
     </script>
