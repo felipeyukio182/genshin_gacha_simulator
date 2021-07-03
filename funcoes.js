@@ -31,13 +31,24 @@ function sortearLendario(garantidoL) {
             return bannerLendario.value
         } else {
             garantidoLendario = true
-            const qualLendario = Math.ceil(Math.random() * listagemLendarios.length)
-            return listagemLendarios[qualLendario - 1]
+
+            // Filtrando os Lendarios, removendo da lista o informado no banner
+            const listagemLendariosFiltrados = listagemLendarios.filter( (lendario) => {
+                if (lendario != bannerLendario.value) {
+                    return lendario
+                }
+            })
+
+            const qualLendario = Math.ceil(Math.random() * listagemLendariosFiltrados.length)
+            return listagemLendariosFiltrados[qualLendario - 1]
         }
     }
 }
 
 function sortearEpico(garantidoE) {
+
+    // const listagemEpicosClone = [ ...listagemEpicos]
+
     if (garantidoE) {
         garantidoEpico = false
 
@@ -49,8 +60,16 @@ function sortearEpico(garantidoE) {
             return qualEpicoDoBanner()
         } else {
             garantidoEpico = true
-            const qualEpicoDaLista = Math.ceil(Math.random() * listagemEpicos.length)
-            return listagemEpicos[qualEpicoDaLista - 1]
+
+            // Filtrando os Epicos, removendo da lista os que estão no banner
+            const listagemEpicosFiltrados = listagemEpicos.filter( (epico) => {
+                if (epico != bannerEpico1.value && epico != bannerEpico2.value && epico != bannerEpico3.value) {
+                    return epico
+                }
+            })
+
+            const qualEpicoDaLista = Math.ceil(Math.random() * listagemEpicosFiltrados.length)
+            return listagemEpicosFiltrados[qualEpicoDaLista - 1]
         }
     }
 }
