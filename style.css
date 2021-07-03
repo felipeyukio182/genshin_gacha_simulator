@@ -3,6 +3,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+main div {
+    margin-top: 5px;
+}
+
 .btnRoletar {
     margin: 5px;
 }
@@ -25,14 +29,14 @@ body {
 div#resultado {
     display: flex;
     /* width: 80%; */
-    width: 800px;
+    width: 1000px;
     flex-wrap: wrap;
     margin: auto;
 }
 
 div#resultado div {
     box-sizing: border-box;
-    width: 80px;
+    width: 100px;
     align-items: center;
     justify-content: center;
     padding: 1px 10px;

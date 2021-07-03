@@ -10,7 +10,7 @@ function roletar() {
         chancesLendario--
         const resEpico = Math.ceil(Math.random() * chancesEpico)
         if (resEpico == 1) {
-            resultado.innerHTML += '<div class="epico">Epico<div>'
+            resultado.innerHTML += `<div class="epico">${sortearEpico(garantidoEpico)}<div>`
             chancesEpico = 10
         } else {
             resultado.innerHTML += '<div class="comum">Comum</div>'
@@ -19,15 +19,15 @@ function roletar() {
     }
 }
 
-function sortearLendario(garantido) {
-    if (garantido) {
+function sortearLendario(garantidoL) {
+    if (garantidoL) {
         garantidoLendario = false
 
         return bannerLendario.value
 
     } else {
-        const cLendario = Math.ceil(Math.random() * 2)
-        if (cLendario == 1) {
+        const chanLendario = Math.ceil(Math.random() * 2)
+        if (chanLendario == 1) {
             return bannerLendario.value
         } else {
             garantidoLendario = true
@@ -35,4 +35,30 @@ function sortearLendario(garantido) {
             return listagemLendarios[qualLendario - 1]
         }
     }
+}
+
+function sortearEpico(garantidoE) {
+    if (garantidoE) {
+        garantidoEpico = false
+
+        return qualEpicoDoBanner()
+
+    } else {
+        const chanEpico = Math.ceil(Math.random() * 2)
+        if (chanEpico == 1) {
+            return qualEpicoDoBanner()
+        } else {
+            garantidoEpico = true
+            const qualEpicoDaLista = Math.ceil(Math.random() * listagemEpicos.length)
+            return listagemEpicos[qualEpicoDaLista - 1]
+        }
+    }
+}
+
+function qualEpicoDoBanner() {
+    const qualEpico = Math.ceil(Math.random() * 3)
+    const bannerEpicoEscolhido = `#bannerEpico${qualEpico}`
+    const bannerEpico = document.querySelector(`${bannerEpicoEscolhido}`)
+    console.log(bannerEpico.value, bannerEpicoEscolhido)
+    return bannerEpico.value
 }
