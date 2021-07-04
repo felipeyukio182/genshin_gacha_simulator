@@ -28,6 +28,10 @@ main div {
     margin: 5px;
 }
 
+div.removerInput {
+    display: none;
+}
+
 .lendario {
     /* background-color: yellow; */
     color: orangered;

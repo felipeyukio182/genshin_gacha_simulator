@@ -12,23 +12,40 @@
         <h1>Genshin Gatcha Simulator</h1>
     </header>
     <main>
+        
+        <div>
+            <label for="banner">Selecione o tipo de banner: </label>
+            <select name="banner" id="banner">
+                <option value="personagem">Personagem</option>
+                <option value="arma">Arma</option>
+            </select>
+        </div>
+
         <div>
             <label for="bannerLendario">Lendário: </label>
             <input type="text" name="bannerLendario" id="bannerLendario" placeholder="Informe o lendario...">
         </div>
+        <div class="bannerOpcional removerInput">
+            <label for="bannerLendario2">Lendário: </label>
+            <input type="text" name="bannerLendario2" id="bannerLendario2" placeholder="Informe o lendario...">
+        </div>
         <div>
-            <label for="bannerEpico1">Epico 1: </label>
+            <label for="bannerEpico1">Epico: </label>
             <input type="text" name="bannerEpico1" id="bannerEpico1" placeholder="Informe o epico...">
         </div>
         <div>
-            <label for="bannerEpico2">Epico 2: </label>
+            <label for="bannerEpico2">Epico: </label>
             <input type="text" name="bannerEpico2" id="bannerEpico2" placeholder="Informe o epico...">
         </div>
         <div>
-            <label for="bannerEpico3">Epico 3: </label>
+            <label for="bannerEpico3">Epico: </label>
             <input type="text" name="bannerEpico3" id="bannerEpico3" placeholder="Informe o epico...">
         </div>
-
+        <div class="bannerOpcional removerInput">
+            <label for="bannerEpico4">Epico: </label>
+            <input type="text" name="bannerEpico4" id="bannerEpico4" placeholder="Informe o epico...">
+        </div>
+        
         <div>
             <input type="radio" name="roletar" id="roletar1" checked>
             <label for="roletar1">Roletar 1x</label>
@@ -39,6 +56,7 @@
             <input type="radio" name="roletar" id="roletar90">
             <label for="roletar90">Roletar 90x</label>
         </div>
+        <button id="btnLimpar" class="btnLimpar">Limpar</button>
         <button id="btnRoletar" class="btnRoletar">Roletar!</button>
 
         <div id="resultado"></div>
@@ -99,18 +117,37 @@
             "Espada 4",    
         ]
 
-        const bannerLendario = document.querySelector("#bannerLendario")
+        const bannerLendario = document.querySelector('#bannerLendario')
+        const bannerLendario2 = document.querySelector('#bannerLendario2')
 
         // Usarei estas constantes para filtrar o array original dos Epicos
-        const bannerEpico1 = document.querySelector("#bannerEpico1")
-        const bannerEpico2 = document.querySelector("#bannerEpico2")
-        const bannerEpico3 = document.querySelector("#bannerEpico3")
+        const bannerEpico1 = document.querySelector('#bannerEpico1')
+        const bannerEpico2 = document.querySelector('#bannerEpico2')
+        const bannerEpico3 = document.querySelector('#bannerEpico3')
+        const bannerEpico4 = document.querySelector('#bannerEpico4')
 
-        const resultado = document.querySelector("#resultado")
+        const resultado = document.querySelector('#resultado')
+
+        const opcaoBanner = document.querySelector('#banner')
 
         const opcaoRoletar = document.querySelectorAll('input[name="roletar"]') 
 
         const btnRoletar = document.querySelector('#btnRoletar')
+
+        const btnLimpar = document.querySelector('#btnLimpar')
+
+        opcaoBanner.addEventListener('change', e => {
+            console.log(e.target.value)
+            if (e.target.value == 'personagem') {
+                document.querySelectorAll('.bannerOpcional').forEach(elemento => {
+                    elemento.classList.add('removerInput')
+                })
+            } else if (e.target.value == 'arma') {
+                document.querySelectorAll('.bannerOpcional').forEach(elemento => {
+                    elemento.classList.remove('removerInput')
+                })
+            }
+        })
       
         btnRoletar.onclick = e => {
             e.preventDefault()
@@ -126,6 +163,11 @@
                     roletar()
                 }
             }
+        }
+
+        btnLimpar.onclick = e => {
+            e.preventDefault()
+            limpar()
         }
 
     </script>

@@ -1,3 +1,7 @@
+function limpar() {
+    resultado.innerHTML = ''
+    console.log('limpou')
+}
 
 function roletar() {
     const resLendario = Math.ceil(Math.random() * chancesLendario)
@@ -19,8 +23,8 @@ function roletar() {
     }
 }
 
-function sortearLendario(garantidoL) {
-    if (garantidoL) {
+function sortearLendario(garantidoLend) {
+    if (garantidoLend) {
         garantidoLendario = false
 
         return bannerLendario.value
@@ -45,11 +49,11 @@ function sortearLendario(garantidoL) {
     }
 }
 
-function sortearEpico(garantidoE) {
+function sortearEpico(garantidoEp) {
 
     // const listagemEpicosClone = [ ...listagemEpicos]
 
-    if (garantidoE) {
+    if (garantidoEp) {
         garantidoEpico = false
 
         return qualEpicoDoBanner()
