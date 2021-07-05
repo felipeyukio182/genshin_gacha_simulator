@@ -132,6 +132,8 @@
 
         const opcaoRoletar = document.querySelectorAll('input[name="roletar"]') 
 
+        const inputText = document.querySelectorAll('input[type="text"]')
+
         const btnRoletar = document.querySelector('#btnRoletar')
 
         const btnLimpar = document.querySelector('#btnLimpar')
@@ -142,14 +144,14 @@
                 document.querySelectorAll('.bannerOpcional').forEach(elemento => {
                     elemento.classList.add('removerInput')
                 })
-                document.querySelectorAll('input[type="text"]').forEach(input => {
+                inputText.forEach(input => {
                     input.value = ''
                 })
             } else if (e.target.value == 'arma') {
                 document.querySelectorAll('.bannerOpcional').forEach(elemento => {
                     elemento.classList.remove('removerInput')
                 })
-                document.querySelectorAll('input[type="text"]').forEach(input => {
+                inputText.forEach(input => {
                     input.value = ''
                 })
             }

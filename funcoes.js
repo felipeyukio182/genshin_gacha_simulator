@@ -1,5 +1,8 @@
 function limparResultado() {
     resultado.innerHTML = ''
+    inputText.forEach(input => {
+        input.value = ''
+    })
     console.log('limpou')
 }
 
@@ -27,18 +30,18 @@ function sortearLendario(garantidoLend) {
     if (garantidoLend) {
         garantidoLendario = false
 
-        return bannerLendario1.value
+        return qualLendarioDoBanner()
 
     } else {
         const chanLendario = Math.ceil(Math.random() * 2)
         if (chanLendario == 1) {
-            return bannerLendario1.value
+            return qualLendarioDoBanner()
         } else {
             garantidoLendario = true
 
             // Filtrando os Lendarios, removendo da lista o informado no banner
             const listagemLendariosFiltrados = listagemLendarios.filter( (lendario) => {
-                if (lendario != bannerLendario1.value) {
+                if (lendario != qualLendarioDoBanner()) {
                     return lendario
                 }
             })
@@ -47,6 +50,17 @@ function sortearLendario(garantidoLend) {
             return listagemLendariosFiltrados[qualLendario - 1]
         }
     }
+}
+
+function qualLendarioDoBanner() {
+    let qualLendarioBanner = ''
+    if (opcaoBanner.value == 'personagem') {
+        qualLendarioBanner = 1
+    } else if (opcaoBanner.value == 'arma') {
+        qualLendarioBanner = Math.ceil(Math.random() * 2)
+    }
+    const bannerLendario = document.querySelector(`#bannerLendario${qualLendarioBanner}`)
+    return bannerLendario.value
 }
 
 function sortearEpico(garantidoEp) {
