@@ -3,7 +3,6 @@ function limparResultado() {
     inputText.forEach(input => {
         input.value = ''
     })
-    console.log('limpou')
 }
 
 function roletar() {
@@ -17,7 +16,7 @@ function roletar() {
         chancesLendario--
         const resEpico = Math.ceil(Math.random() * chancesEpico)
         if (resEpico == 1) {
-            resultado.innerHTML += `<div class="epico">${sortearEpico(garantidoEpico)}<div>`
+            resultado.innerHTML += `<div class="epico">${sortearEpico(garantidoEpico)}</div>`
             chancesEpico = 10
         } else {
             resultado.innerHTML += '<div class="comum">Comum</div>'
@@ -93,7 +92,7 @@ function sortearEpico(garantidoEp) {
 }
 
 function qualEpicoDoBanner() {
-    console.log(opcaoBanner.value)
+    
     let qualEpico = ''
     if (opcaoBanner.value == 'personagem') {
         qualEpico = Math.ceil(Math.random() * 3)
