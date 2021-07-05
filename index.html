@@ -22,8 +22,8 @@
         </div>
 
         <div>
-            <label for="bannerLendario">Lendário: </label>
-            <input type="text" name="bannerLendario" id="bannerLendario" placeholder="Informe o lendario...">
+            <label for="bannerLendario1">Lendário: </label>
+            <input type="text" name="bannerLendario1" id="bannerLendario1" placeholder="Informe o lendario...">
         </div>
         <div class="bannerOpcional removerInput">
             <label for="bannerLendario2">Lendário: </label>
@@ -117,7 +117,7 @@
             "Espada 4",    
         ]
 
-        const bannerLendario = document.querySelector('#bannerLendario')
+        const bannerLendario1 = document.querySelector('#bannerLendario1')
         const bannerLendario2 = document.querySelector('#bannerLendario2')
 
         // Usarei estas constantes para filtrar o array original dos Epicos
@@ -142,9 +142,15 @@
                 document.querySelectorAll('.bannerOpcional').forEach(elemento => {
                     elemento.classList.add('removerInput')
                 })
+                document.querySelectorAll('input[type="text"]').forEach(input => {
+                    input.value = ''
+                })
             } else if (e.target.value == 'arma') {
                 document.querySelectorAll('.bannerOpcional').forEach(elemento => {
                     elemento.classList.remove('removerInput')
+                })
+                document.querySelectorAll('input[type="text"]').forEach(input => {
+                    input.value = ''
                 })
             }
         })
@@ -167,7 +173,7 @@
 
         btnLimpar.onclick = e => {
             e.preventDefault()
-            limpar()
+            limparResultado()
         }
 
     </script>

@@ -1,4 +1,4 @@
-function limpar() {
+function limparResultado() {
     resultado.innerHTML = ''
     console.log('limpou')
 }
@@ -27,18 +27,18 @@ function sortearLendario(garantidoLend) {
     if (garantidoLend) {
         garantidoLendario = false
 
-        return bannerLendario.value
+        return bannerLendario1.value
 
     } else {
         const chanLendario = Math.ceil(Math.random() * 2)
         if (chanLendario == 1) {
-            return bannerLendario.value
+            return bannerLendario1.value
         } else {
             garantidoLendario = true
 
             // Filtrando os Lendarios, removendo da lista o informado no banner
             const listagemLendariosFiltrados = listagemLendarios.filter( (lendario) => {
-                if (lendario != bannerLendario.value) {
+                if (lendario != bannerLendario1.value) {
                     return lendario
                 }
             })
@@ -79,9 +79,15 @@ function sortearEpico(garantidoEp) {
 }
 
 function qualEpicoDoBanner() {
-    const qualEpico = Math.ceil(Math.random() * 3)
-    const bannerEpicoEscolhido = `#bannerEpico${qualEpico}`
-    const bannerEpico = document.querySelector(`${bannerEpicoEscolhido}`)
-    console.log(bannerEpico.value, bannerEpicoEscolhido)
+    console.log(opcaoBanner.value)
+    let qualEpico = ''
+    if (opcaoBanner.value == 'personagem') {
+        qualEpico = Math.ceil(Math.random() * 3)
+    } else if (opcaoBanner.value == 'arma') {
+        qualEpico = Math.ceil(Math.random() * 4)
+    }
+    // const bannerEpicoEscolhido = `#bannerEpico${qualEpico}`
+    const bannerEpico = document.querySelector(`#bannerEpico${qualEpico}`)
+    
     return bannerEpico.value
 }
