@@ -159,6 +159,22 @@
       
         btnRoletar.onclick = e => {
             e.preventDefault()
+  
+            if (opcaoBanner.value == 'personagem') {
+                const arrPersonagem = [bannerLendario1, bannerEpico1, bannerEpico2, bannerEpico3]
+                arrPersonagem.forEach(personagem => {
+                    if (personagem.value == '') {
+                        personagem.value = 'Random'
+                    }
+                })
+            } else if (opcaoBanner.value == 'arma') {
+                const arrArma = [bannerLendario1, bannerLendario2, bannerEpico1, bannerEpico2, bannerEpico3, bannerEpico4]
+                arrArma.forEach(arma => {
+                    if (arma.value == '') {
+                        arma.value = 'Random'
+                    }
+                })
+            }
 
             if (opcaoRoletar[0].checked) {
                 roletar()
